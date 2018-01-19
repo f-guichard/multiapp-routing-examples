@@ -9,20 +9,20 @@ applications:
   health-check-type: port
   path: ./php-apache-app1
   routes: 
-  - route : fabien.app.beta.cfy.s0.hbx.geo.francetelecom.fr/1
+  - route : fabien.domain/1
 - name: app2
   <<: *acc
   health-check-type: http
   path: ./php-nginx-app2
   routes: 
-  - route : fabien.app.beta.cfy.s0.hbx.geo.francetelecom.fr/2
+  - route : fabien.domain/2
 - name: app3
   memory: 16M
   disk_quota: 64M
   instances: 1
   path: ./go-app
   routes:
-  - route : fabien.app.beta.cfy.s0.hbx.geo.francetelecom.fr/3
+  - route : fabien.domain/3
 - name: app4
   command: node apiserver.js
   buildpack: nodejs_buildpack
@@ -31,4 +31,4 @@ applications:
   instances: 1
   path: ./nodejs-app
   routes:
-  - route : fabien.app.beta.cfy.s0.hbx.geo.francetelecom.fr/4
+  - route : fabien.domain/4
