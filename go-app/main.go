@@ -13,8 +13,13 @@ func main() {
 	}
         fmt.Fprintf(os.Stdout, "APP Port is %s \n", port)
         http.HandleFunc("/3", third)
+        http.HandleFunc("/archi", archi)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 func third(w http.ResponseWriter, r *http.Request) {
         fmt.Fprintf(w, "Go : je suis app3 !!!!")
 }
+func archi(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "Go : cocuou archi coll !!!!")
+}
+
