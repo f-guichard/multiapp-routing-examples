@@ -9,20 +9,21 @@ applications:
   health-check-type: port
   path: ./php-apache-app1
   routes: 
-  - route : fabien.domain/1
+  - route : app.domain/1
 - name: app2
   <<: *acc
   health-check-type: http
   path: ./php-nginx-app2
   routes: 
-  - route : fabien.domain/2
-- name: app3
+  - route : app.domain/2
+ name: app3
   memory: 16M
   disk_quota: 64M
   instances: 1
   path: ./go-app
   routes:
-  - route : fabien.domain/3
+  - route : app.domain/3
+  - route : app.domain/archi
 - name: app4
   command: node apiserver.js
   buildpack: nodejs_buildpack
@@ -31,4 +32,7 @@ applications:
   instances: 1
   path: ./nodejs-app
   routes:
-  - route : fabien.domain/4
+  - route : app.domain/4
+  - route : app.domain/proxy-page
+  - route : app.domain/services
+  - route : app.domain/application
